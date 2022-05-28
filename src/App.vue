@@ -1,9 +1,7 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-	Hello World
+    <router-view />
 </template>
 
 <style lang="scss">
