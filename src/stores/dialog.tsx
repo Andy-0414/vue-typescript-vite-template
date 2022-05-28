@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { VNode } from "vue";
-import AppDialog from "../components/app/dialog/AppDialog.vue"
 
 interface DialogInfo {
     vNode: VNode;
@@ -20,10 +19,9 @@ export const useDialogStore = defineStore("dialogStore", {
         },
         /**
          * @description 단순 텍스트 다이얼로그를 띄웁니다.
-         * @param text 
+         * @param text 다이얼로그 문구
          */
         showTextDialog(text: string) {
-            let idx = this.$state.dialogInfoList.length;
             this.$state.dialogInfoList.push({
                 vNode: (
                     <div>
