@@ -2,6 +2,12 @@
 import Counter from "../components/Counter.vue";
 import vLoading from "../directive/vLoading/vLoading";
 import vUseDisabled from "../directive/vUseDisabled/vUseDisabled";
+import { useDialogStore } from "../stores/dialog";
+
+let dialogStore = useDialogStore();
+function showDialog() {
+    dialogStore.showTextDialog("Test Dialog");
+}
 </script>
 
 <template>
@@ -14,6 +20,9 @@ import vUseDisabled from "../directive/vUseDisabled/vUseDisabled";
             <div class="home__components__item">
                 <h3>Loading Directive</h3>
                 <div class="box" v-loading v-use-disabled>ID: <input /></div>
+            </div>
+            <div class="home__components__item">
+                <button @click="showDialog">showDialog</button>
             </div>
         </div>
     </div>
