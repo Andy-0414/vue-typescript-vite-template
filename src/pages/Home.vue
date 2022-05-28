@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Counter from "../components/Counter.vue";
+import vLoading from "../directive/vLoading/vLoading";
+import vUseDisabled from "../directive/vUseDisabled/vUseDisabled";
 </script>
 
 <template>
@@ -8,6 +10,10 @@ import Counter from "../components/Counter.vue";
         <div class="home__components">
             <div class="home__components__item">
                 <Counter></Counter>
+            </div>
+            <div class="home__components__item">
+                <h3>Loading Directive</h3>
+                <div class="box" v-loading v-use-disabled>ID: <input /></div>
             </div>
         </div>
     </div>
@@ -33,6 +39,17 @@ import Counter from "../components/Counter.vue";
         flex-direction: column;
 
         &__item {
+            .box {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 200px;
+                height: 200px;
+
+                border: 2px solid black;
+                border-radius: 5px;
+            }
         }
     }
 }
