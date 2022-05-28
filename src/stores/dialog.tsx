@@ -11,10 +11,18 @@ export const useDialogStore = defineStore("counterStore", {
         dialogInfoList: [] as DialogInfo[],
     }),
     actions: {
+        /**
+         * @description idx 번째 다이얼로그를 삭제합니다.
+         * @param idx 다이얼로그 인덱스
+         */
         closeDialog(idx: number) {
             this.$state.dialogInfoList.splice(idx, 1);
         },
-        async showTextDialog(text: string) {
+        /**
+         * @description 단순 텍스트 다이얼로그를 띄웁니다.
+         * @param text 
+         */
+        showTextDialog(text: string) {
             let idx = this.$state.dialogInfoList.length;
             this.$state.dialogInfoList.push({
                 vNode: (

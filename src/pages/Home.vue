@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import Counter from "../components/Counter.vue";
 import vLoading from "../directive/vLoading/vLoading";
 import vUseDisabled from "../directive/vUseDisabled/vUseDisabled";
 import { useDialogStore } from "../stores/dialog";
 
-let dialogStore = useDialogStore();
-function showDialog() {
-    dialogStore.showTextDialog("Test Dialog");
-}
+const dialogStore = useDialogStore();
+
+const dialogMessage = ref("");
 </script>
 
 <template>
@@ -22,7 +22,12 @@ function showDialog() {
                 <div class="box" v-loading v-use-disabled>ID: <input /></div>
             </div>
             <div class="home__components__item">
-                <button @click="showDialog">showDialog</button>
+                <h3>Custom Dialog</h3>
+                <input v-model="dialogMessage" type="text" /><button
+                    @click="dialogStore.showTextDialog(dialogMessage)"
+                >
+                    showDialog
+                </button>
             </div>
         </div>
     </div>
