@@ -23,11 +23,7 @@ export const useDialogStore = defineStore("dialogStore", {
          */
         showTextDialog(text: string) {
             this.$state.dialogInfoList.push({
-                vNode: (
-                    <div>
-                        {text}
-                    </div>
-                ),
+                vNode: <div>{text}</div>,
             });
         },
     },
