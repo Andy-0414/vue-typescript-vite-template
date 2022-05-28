@@ -6,7 +6,7 @@ interface DialogInfo {
     vNode: VNode;
 }
 
-export const useDialogStore = defineStore("counterStore", {
+export const useDialogStore = defineStore("dialogStore", {
     state: () => ({
         dialogInfoList: [] as DialogInfo[],
     }),
