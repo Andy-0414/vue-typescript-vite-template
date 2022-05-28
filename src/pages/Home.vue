@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Counter from "../components/Counter.vue";
-import vLoading from "../directive/vLoading/vLoading";
-import vUseDisabled from "../directive/vUseDisabled/vUseDisabled";
+import vLoading from "../directives/vLoading/vLoading";
+import vUseDisabled from "../directives/vUseDisabled/vUseDisabled";
 import { useDialogStore } from "../stores/dialog";
 
 const dialogStore = useDialogStore();
