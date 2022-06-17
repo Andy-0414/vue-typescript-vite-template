@@ -5,6 +5,7 @@ import vLoading from "../directives/vLoading/vLoading";
 import vUseDisabled from "../directives/vUseDisabled/vUseDisabled";
 import { useDialogStore } from "../stores/dialog";
 import AppButton from "../components/app/button/AppButton.vue";
+import AppInput from "../components/app/input/AppInput.vue";
 
 const dialogStore = useDialogStore();
 
@@ -21,6 +22,10 @@ const dialogMessage = ref("");
             <div class="home__components__item">
                 <h3>AppButton</h3>
                 <AppButton></AppButton>
+            </div>
+            <div class="home__components__item" style="margin-bottom: 100px">
+                <h3>AppButton</h3>
+                <AppInput button-text="입력"></AppInput>
             </div>
             <div class="home__components__item">
                 <h3>Loading Directive</h3>
