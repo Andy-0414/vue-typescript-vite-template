@@ -9,6 +9,7 @@ import AppInput from "../components/app/input/AppInput.vue";
 
 const dialogStore = useDialogStore();
 
+const inputMessage = ref("default value");
 const dialogMessage = ref("");
 </script>
 
@@ -25,7 +26,8 @@ const dialogMessage = ref("");
             </div>
             <div class="home__components__item" style="margin-bottom: 100px">
                 <h3>AppButton</h3>
-                <AppInput button-text="입력"></AppInput>
+                <AppInput v-model="inputMessage" button-text="입력" @click-button="inputMessage += '123'"></AppInput>
+                {{ inputMessage }}
             </div>
             <div class="home__components__item">
                 <h3>Loading Directive</h3>

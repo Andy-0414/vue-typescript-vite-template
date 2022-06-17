@@ -1,17 +1,27 @@
 <script setup lang="ts">
+import { computed } from "@vue/reactivity";
 import AppSmallButton from "../button/AppSmallButton.vue";
 
 interface Props {
     buttonText?: string;
+    hintText?: string;
+    modelValue: string;
 }
 const props = defineProps<Props>();
+const emit = defineEmits(["click-button", "update:modelValue"]);
+
+const modelValue = computed(() => props.modelValue);
+
+function handleInput(e: Event) {
+    emit("update:modelValue", (e.target as HTMLInputElement).value);
+}
 </script>
 
 <template>
     <div class="app-input">
-        <input class="app-input__input" type="text" />
-        <AppSmallButton class="app-input__button" v-if="props.buttonText">{{ props.buttonText }}</AppSmallButton>
-        <div class="app-input__hint-text">힌트 문구</div>
+        <input v-model="modelValue" @input="handleInput" class="app-input__input" type="text" />
+        <AppSmallButton v-if="props.buttonText" class="app-input__button" @click="emit('click-button')">{{ props.buttonText }}</AppSmallButton>
+        <div v-if="props.hintText" class="app-input__hint-text">{{ hintText }}</div>
     </div>
 </template>
 
