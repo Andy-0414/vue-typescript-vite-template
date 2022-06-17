@@ -1,14 +1,18 @@
-*{
+@import "variable.scss";
+@import "./mixins/clickable.scss";
+@import "./mixins/block.scss";
+
+* {
     margin: 0;
     padding: 0;
 
     box-sizing: border-box;
 }
-body{
+body {
     min-height: 100vh;
     height: 100vh;
 }
-#app{
+#app {
     height: 100%;
     background: #efefef;
 }

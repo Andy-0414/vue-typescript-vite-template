@@ -4,6 +4,7 @@ import Counter from "../components/Counter.vue";
 import vLoading from "../directives/vLoading/vLoading";
 import vUseDisabled from "../directives/vUseDisabled/vUseDisabled";
 import { useDialogStore } from "../stores/dialog";
+import AppButton from "../components/app/button/AppButton.vue";
 
 const dialogStore = useDialogStore();
 
@@ -18,16 +19,16 @@ const dialogMessage = ref("");
                 <Counter></Counter>
             </div>
             <div class="home__components__item">
+                <h3>AppButton</h3>
+                <AppButton></AppButton>
+            </div>
+            <div class="home__components__item">
                 <h3>Loading Directive</h3>
                 <div class="box" v-loading v-use-disabled>ID: <input /></div>
             </div>
             <div class="home__components__item">
                 <h3>Custom Dialog</h3>
-                <input v-model="dialogMessage" type="text" /><button
-                    @click="dialogStore.showTextDialog(dialogMessage)"
-                >
-                    showDialog
-                </button>
+                <input v-model="dialogMessage" type="text" /><button @click="dialogStore.showTextDialog(dialogMessage)">showDialog</button>
             </div>
         </div>
     </div>

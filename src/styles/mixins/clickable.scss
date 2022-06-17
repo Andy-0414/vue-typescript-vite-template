@@ -1,0 +1,8 @@
+@mixin clickable {
+    cursor: pointer;
+
+    user-select: none;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+}

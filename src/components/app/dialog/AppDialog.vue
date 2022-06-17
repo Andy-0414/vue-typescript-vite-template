@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { VNode, onMounted, render, ref, VNodeRef } from "vue";
-import SlideTransition from "../../../transitions/SlideTransition.vue";
 
 interface Props {
     vNode?: VNode;
@@ -23,12 +22,7 @@ onMounted(() => {
         <SlideTransition>
             <div class="app-dialog__box">
                 <div class="app-dialog__box__top__actions">
-                    <div
-                        class="app-dialog__box__top__actions__close"
-                        @click="emit('close')"
-                    >
-                        ✕
-                    </div>
+                    <div class="app-dialog__box__top__actions__close" @click="emit('close')">✕</div>
                 </div>
                 <div class="app-dialog__box__content" ref="content">
                     <slot></slot>

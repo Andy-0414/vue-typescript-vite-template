@@ -10,18 +10,13 @@ const dialogStore = useDialogStore();
     <router-view />
     <div id="dialog">
         <FadeTransition>
-            <AppDialog
-                v-for="(dialog, idx) in dialogStore.dialogInfoList"
-                :key="idx"
-                :vNode="dialog.vNode"
-                @close="dialogStore.closeDialog(idx)"
-            ></AppDialog>
+            <AppDialog v-for="(dialog, idx) in dialogStore.dialogInfoList" :key="idx" :vNode="dialog.vNode" @close="dialogStore.closeDialog(idx)"></AppDialog>
         </FadeTransition>
     </div>
 </template>
 
 <style lang="scss">
-@import "./styles/app.scss";
+@import "@/styles/app.scss";
 
 #dialog {
 }
