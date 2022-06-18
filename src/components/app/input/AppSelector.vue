@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { computed } from "@vue/reactivity";
 import AppIcon from "../AppIcon.vue";
 import { mdiTriangleSmallDown } from "@mdi/js";
@@ -7,24 +8,25 @@ interface Props {
     modelValue: string;
 }
 const props = defineProps<Props>();
-const emit = defineEmits(["click-button", "update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const modelValue = computed(() => props.modelValue);
+const isShowList = ref(false);
 
-function handleInput(e: Event) {
-    emit("update:modelValue", (e.target as HTMLInputElement).value);
+function handleSelectItem(value: string) {
+    emit("update:modelValue", value);
+    isShowList.value = !isShowList.value;
 }
 </script>
 
 <template>
     <div class="app-selector">
-        <div class="app-selector__input">
-            <span></span>
+        <div class="app-selector__input" @click="isShowList = !isShowList">
+            <span>{{ modelValue }}</span>
             <AppIcon :path="mdiTriangleSmallDown"></AppIcon>
         </div>
-        <div class="app-selector__list">
-            <div class="app-selector__list__item">1</div>
-            <div class="app-selector__list__item">2</div>
+        <div class="app-selector__list" v-if="isShowList">
+            <div class="app-selector__list__item" v-for="num of 10" :key="num" @click="handleSelectItem(String(num))">{{ num }}</div>
         </div>
         <div v-if="props.hintText" class="app-selector__hint-text">{{ hintText }}</div>
     </div>
@@ -44,11 +46,32 @@ function handleInput(e: Event) {
         justify-content: space-between;
     }
     &__list {
+        width: 100%;
+        height: fit-content;
+        max-height: 200px;
+
+        overflow: hidden;
+        overflow-y: scroll;
+
         display: flex;
         flex-direction: column;
 
         position: absolute;
-        top: calc(100% + 10px);
+        top: calc(100% + 5px);
+
+        background: white;
+
+        z-index: 1;
+
+        &__item {
+            @include clickable;
+
+            padding: 10px;
+            border-bottom: 1px solid black;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
     }
     &__hint-text {
         @include hint-text;
