@@ -19,16 +19,14 @@ onMounted(() => {
 
 <template>
     <div class="app-dialog">
-        <SlideTransition>
-            <div class="app-dialog__box">
-                <div class="app-dialog__box__top__actions">
-                    <div class="app-dialog__box__top__actions__close" @click="emit('close')">✕</div>
-                </div>
-                <div class="app-dialog__box__content" ref="content">
-                    <slot></slot>
-                </div>
+        <div class="app-dialog__box">
+            <div class="app-dialog__box__top__actions">
+                <div class="app-dialog__box__top__actions__close" @click="emit('close')">✕</div>
             </div>
-        </SlideTransition>
+            <div class="app-dialog__box__content" ref="content">
+                <slot></slot>
+            </div>
+        </div>
     </div>
 </template>
 

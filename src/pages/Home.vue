@@ -6,6 +6,7 @@ import vUseDisabled from "../directives/vUseDisabled/vUseDisabled";
 import { useDialogStore } from "../stores/dialog";
 import AppButton from "../components/app/button/AppButton.vue";
 import AppInput from "../components/app/input/AppInput.vue";
+import AppSelector from "../components/app/input/AppSelector.vue";
 
 const dialogStore = useDialogStore();
 
@@ -25,8 +26,13 @@ const dialogMessage = ref("");
                 <AppButton></AppButton>
             </div>
             <div class="home__components__item" style="margin-bottom: 100px">
-                <h3>AppButton</h3>
+                <h3>AppInput</h3>
                 <AppInput v-model="inputMessage" button-text="입력" @click-button="inputMessage += '123'"></AppInput>
+                {{ inputMessage }}
+            </div>
+            <div class="home__components__item" style="margin-bottom: 100px">
+                <h3>AppSelector</h3>
+                <AppSelector v-model="inputMessage"></AppSelector>
                 {{ inputMessage }}
             </div>
             <div class="home__components__item">
@@ -35,7 +41,7 @@ const dialogMessage = ref("");
             </div>
             <div class="home__components__item">
                 <h3>Custom Dialog</h3>
-                <input v-model="dialogMessage" type="text" /><button @click="dialogStore.showTextDialog(dialogMessage)">showDialog</button>
+                <AppInput v-model="dialogMessage" button-text="보기" @click-button="dialogStore.showTextDialog(dialogMessage)"></AppInput>
             </div>
         </div>
     </div>

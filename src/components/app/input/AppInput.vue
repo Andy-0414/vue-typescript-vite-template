@@ -32,26 +32,14 @@ function handleInput(e: Event) {
     display: flex;
 
     width: auto;
-    .app-input__input {
-        width: 100%;
-
-        border: none;
-        border-radius: 5px;
-        padding: 10px;
-
-        &:focus {
-            outline: thin solid rgba($primary-color, 0.2);
-        }
+    &__input {
+        @include input;
     }
-    .app-input__button {
+    &__button {
         margin-left: 10px;
     }
-    .app-input__hint-text {
-        position: absolute;
-        top: calc(100% + 10px);
-
-        font-size: 12px;
-        color: $sub-dark-gray;
+    &__hint-text {
+        @include hint-text;
     }
 }
 </style>

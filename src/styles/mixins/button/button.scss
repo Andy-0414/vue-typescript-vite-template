@@ -1,0 +1,7 @@
+@mixin button {
+    @include clickable;
+
+    background-color: $primary-color;
+
+    border: none;
+}

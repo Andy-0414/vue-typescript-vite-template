@@ -1,6 +1,9 @@
 @import "variable.scss";
 @import "./mixins/clickable.scss";
 @import "./mixins/block.scss";
+@import "./mixins/button/button.scss";
+@import "./mixins/input/input.scss";
+@import "./mixins/input/hint-text.scss";
 
 * {
     margin: 0;

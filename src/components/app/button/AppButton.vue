@@ -6,11 +6,8 @@
 
 <style lang="scss" scoped>
 .app-button {
-    @include clickable;
+    @include button;
 
-    background-color: $primary-color;
-
-    border: none;
     border-radius: 100px;
     padding: 10px 80px;
 
