@@ -67,9 +67,19 @@ function handleSelectItem(value: string) {
             @include clickable;
 
             padding: 10px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid gray;
+
+            background-color: #dddddd;
+
             &:last-child {
                 border-bottom: none;
+            }
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+            &:active {
+                filter: brightness(0.95);
             }
         }
     }
