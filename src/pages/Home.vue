@@ -32,7 +32,7 @@ const dialogMessage = ref("");
             </div>
             <div class="home__components__item" style="margin-bottom: 100px">
                 <h3>AppSelector</h3>
-                <AppSelector v-model="inputMessage"></AppSelector>
+                <AppSelector :list="['hello', 'world', 'test']" v-model="inputMessage"></AppSelector>
                 {{ inputMessage }}
             </div>
             <div class="home__components__item">

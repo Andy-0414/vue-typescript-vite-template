@@ -19,7 +19,7 @@ function handleInput(e: Event) {
 
 <template>
     <div class="app-input">
-        <input v-model="modelValue" @input="handleInput" class="app-input__input" type="text" />
+        <input v-bind="$attrs" :value="modelValue" @input="handleInput" class="app-input__input" type="text" />
         <AppSmallButton v-if="props.buttonText" class="app-input__button" @click="emit('click-button')">{{ props.buttonText }}</AppSmallButton>
         <div v-if="props.hintText" class="app-input__hint-text">{{ hintText }}</div>
     </div>
